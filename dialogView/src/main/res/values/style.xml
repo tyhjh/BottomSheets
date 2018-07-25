@@ -15,4 +15,10 @@
     </style>
 
 
+    <!--背景为半透明，大小自适应-->
+    <style name="dialog2" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
 </resources>
