@@ -10,7 +10,6 @@ import android.view.View;
  */
 
 public class DialogUtil {
-
     public static Dialog Dialog(Context context, boolean cancelable, View view){
         AlertDialog.Builder di;
         di = new AlertDialog.Builder(context);
