@@ -12,6 +12,12 @@ public class BottomFragment extends DialogFragment {
 
 
     View view;
+    //设置背景半透明
+    boolean backgroundDim;
+
+    public void setBackgroundDim(boolean backgroundDim) {
+        this.backgroundDim = backgroundDim;
+    }
 
     public void setView(View view) {
         this.view = view;
@@ -21,7 +27,12 @@ public class BottomFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // 使用不带Theme的构造器, 获得的dialog边框距离屏幕仍有几毫米的缝隙。
-        Dialog dialog = new Dialog(getActivity(), R.style.BottomDialog);
+        Dialog dialog;
+        if (backgroundDim) {
+            dialog = new Dialog(getActivity(), R.style.BottomDialogDim);
+        } else {
+            dialog = new Dialog(getActivity(), R.style.BottomDialog);
+        }
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 设置Content前设定
         dialog.setContentView(view);
         dialog.setCanceledOnTouchOutside(true); // 外部点击取消

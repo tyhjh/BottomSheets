@@ -13,13 +13,14 @@ import com.example.bottomsheet.MyDialog;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_hello;
+    Button btn_hello,btn_hello2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn_hello = findViewById(R.id.btn_hello);
+        btn_hello2 = findViewById(R.id.btn_hello2);
     }
 
 
@@ -29,22 +30,32 @@ public class MainActivity extends AppCompatActivity {
         btn_hello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(MainActivity.this);
-
-
                 ImageView imageView = new ImageView(MainActivity.this);
                 imageView.setImageResource(R.drawable.ic_launcher_background);
+                BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(MainActivity.this);
                 bottomSheetDialog.setContentView(imageView);
                 bottomSheetDialog.show();
-                //BottomFragment fragment=new BottomFragment();
-                //fragment.setView(imageView);
-                //fragment.show(getFragmentManager(),"tag");
 
+
+                /*BottomFragment fragment=new BottomFragment();
+                fragment.setView(imageView);
+                fragment.show(getFragmentManager(),"tag");*/
 
             }
         });
 
+        btn_hello2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView imageView = new ImageView(MainActivity.this);
+                imageView.setImageResource(R.drawable.ic_launcher_background);
 
+                BottomFragment fragment=new BottomFragment();
+                fragment.setView(imageView);
+                fragment.show(getFragmentManager(),"tag");
+
+            }
+        });
 
 
     }
