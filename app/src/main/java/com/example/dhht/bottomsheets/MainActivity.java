@@ -3,6 +3,7 @@ package com.example.dhht.bottomsheets;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -47,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
         btn_hello2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ImageView imageView = new ImageView(MainActivity.this);
-                imageView.setImageResource(R.drawable.ic_launcher_background);
 
+                View view=LayoutInflater.from(MainActivity.this).inflate(R.layout.bottomsheet,null);
                 BottomFragment fragment=new BottomFragment();
-                fragment.setView(imageView);
+                fragment.setView(view);
+                fragment.setBackgroundDim(false);
                 fragment.show(getFragmentManager(),"tag");
 
             }
